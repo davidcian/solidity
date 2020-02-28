@@ -505,10 +505,11 @@ bool VariableDeclaration::hasReferenceOrMappingType() const
 set<VariableDeclaration::Location> VariableDeclaration::allowedDataLocations() const
 {
 	using Location = VariableDeclaration::Location;
+	bool isStateVariable = dynamic_cast<StateVariableDeclaration const *>(this);
 
-	if (!hasReferenceOrMappingType() || isStateVariable() || isEventParameter())
+	if (!hasReferenceOrMappingType() || isStateVariable || isEventParameter())
 		return set<Location>{ Location::Unspecified };
-	else if (isStateVariable() && isConstant())
+	else if (isStateVariable && isConstant())
 		return set<Location>{ Location::Memory };
 	else if (isExternalCallableParameter())
 	{
@@ -541,7 +542,9 @@ set<VariableDeclaration::Location> VariableDeclaration::allowedDataLocations() c
 
 string VariableDeclaration::externalIdentifierHex() const
 {
-	solAssert(isStateVariable() && isPublic(), "Can only be called for public state variables");
+	solAssert(dynamic_cast<StateVariableDeclaration const *>(this) &&
+		isPublic(), "Can only be called for public state variables"
+	);
 	return TypeProvider::function(*this)->externalIdentifierHex();
 }
 

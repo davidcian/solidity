@@ -480,7 +480,7 @@ bool TypeChecker::visit(VariableDeclaration const& _variable)
 				"Initial value for constant variable has to be compile-time constant."
 			);
 	}
-	if (!_variable.isStateVariable())
+	if (!dynamic_cast<StateVariableDeclaration const*>(varType))
 	{
 		if (varType->dataStoredIn(DataLocation::Memory) || varType->dataStoredIn(DataLocation::CallData))
 			if (!varType->canLiveOutsideStorage())
@@ -641,6 +641,7 @@ bool TypeChecker::visit(InlineAssembly const& _inlineAssembly)
 		if (auto var = dynamic_cast<VariableDeclaration const*>(declaration))
 		{
 			solAssert(var->type(), "Expected variable type!");
+			bool isStateVariable = dynamic_cast<StateVariableDeclaration const*>(var);
 			if (var->isConstant())
 			{
 				var = rootVariableDeclaration(*var);
@@ -672,14 +673,14 @@ bool TypeChecker::visit(InlineAssembly const& _inlineAssembly)
 
 			if (requiresStorage)
 			{
-				if (!var->isStateVariable() && !var->type()->dataStoredIn(DataLocation::Storage))
+				if (!isStateVariable && !var->type()->dataStoredIn(DataLocation::Storage))
 				{
 					m_errorReporter.typeError(_identifier.location, "The suffixes _offset and _slot can only be used on storage variables.");
 					return size_t(-1);
 				}
 				else if (_context == yul::IdentifierContext::LValue)
 				{
-					if (var->isStateVariable())
+					if (isStateVariable)
 					{
 						m_errorReporter.typeError(_identifier.location, "State variables cannot be assigned to - you have to use \"sstore()\".");
 						return size_t(-1);
@@ -693,7 +694,7 @@ bool TypeChecker::visit(InlineAssembly const& _inlineAssembly)
 						solAssert(ref->second.isSlot, "");
 				}
 			}
-			else if (!var->isConstant() && var->isStateVariable())
+			else if (!var->isConstant() && isStateVariable)
 			{
 				m_errorReporter.typeError(_identifier.location, "Only local variables are supported. To access storage variables, use the _slot and _offset suffixes.");
 				return size_t(-1);

@@ -374,11 +374,12 @@ bool ASTJsonConverter::visit(FunctionDefinition const& _node)
 
 bool ASTJsonConverter::visit(VariableDeclaration const& _node)
 {
+	bool isStateVariable = dynamic_cast<StateVariableDeclaration const*>(&_node);
 	std::vector<pair<string, Json::Value>> attributes = {
 		make_pair("name", _node.name()),
 		make_pair("typeName", toJsonOrNull(_node.typeName())),
 		make_pair("constant", _node.isConstant()),
-		make_pair("stateVariable", _node.isStateVariable()),
+		make_pair("stateVariable", isStateVariable),
 		make_pair("storageLocation", location(_node.referenceLocation())),
 		make_pair("overrides", _node.overrides() ? toJson(*_node.overrides()) : Json::nullValue),
 		make_pair("visibility", Declaration::visibilityToString(_node.visibility())),
@@ -386,7 +387,7 @@ bool ASTJsonConverter::visit(VariableDeclaration const& _node)
 		make_pair("scope", idOrNull(_node.scope())),
 		make_pair("typeDescriptions", typePointerToJson(_node.annotation().type, true))
 	};
-	if (_node.isStateVariable() && _node.isPublic())
+	if (isStateVariable && _node.isPublic())
 		attributes.emplace_back("functionSelector", _node.externalIdentifierHex());
 	if (m_inEvent)
 		attributes.emplace_back("indexed", _node.isIndexed());

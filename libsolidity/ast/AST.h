@@ -822,7 +822,6 @@ public:
 		ASTPointer<ASTString> const& _name,
 		ASTPointer<Expression> _value,
 		Visibility _visibility,
-		bool _isStateVar = false,
 		bool _isIndexed = false,
 		bool _isConstant = false,
 		ASTPointer<OverrideSpecifier> const& _overrides = nullptr,
@@ -831,7 +830,6 @@ public:
 		Declaration(_id, _location, _name, _visibility),
 		m_typeName(_type),
 		m_value(_value),
-		m_isStateVariable(_isStateVar),
 		m_isIndexed(_isIndexed),
 		m_isConstant(_isConstant),
 		m_overrides(_overrides),
@@ -875,7 +873,6 @@ public:
 	/// array, struct or mapping. These types can take a data location (and often require it).
 	/// Can only be called after reference resolution.
 	bool hasReferenceOrMappingType() const;
-	bool isStateVariable() const { return m_isStateVariable; }
 	bool isIndexed() const { return m_isIndexed; }
 	bool isConstant() const { return m_isConstant; }
 	ASTPointer<OverrideSpecifier> const& overrides() const { return m_overrides; }
@@ -907,6 +904,34 @@ private:
 	bool m_isConstant = false; ///< Whether the variable is a compile-time constant.
 	ASTPointer<OverrideSpecifier> m_overrides; ///< Contains the override specifier node
 	Location m_location = Location::Unspecified; ///< Location of the variable if it is of reference type.
+};
+
+class StateVariableDeclaration: public VariableDeclaration, public StructurallyDocumented
+{
+public:
+	StateVariableDeclaration(
+		int64_t _id,
+		SourceLocation const& _location,
+		ASTPointer<TypeName> const& _type,
+		ASTPointer<ASTString> const& _name,
+		ASTPointer<Expression> _value,
+		Visibility _visibility,
+		ASTPointer<StructuredDocumentation> const& _documentation,
+		bool _isIndexed = false,
+		bool _isConstant = false,
+		ASTPointer<OverrideSpecifier> const& _overrides = nullptr,
+		Location _referenceLocation = Location::Unspecified
+	):
+		VariableDeclaration(_id, _location, _type, _name, _value, _visibility, _isIndexed, _isConstant, _overrides, _referenceLocation),
+		StructurallyDocumented(_documentation)
+	{
+	}
+
+	void accept(ASTVisitor& _visitor) override;
+	void accept(ASTConstVisitor& _visitor) const override;
+
+	StateVariableDeclarationAnnotation& annotation() const override;
+
 };
 
 /**

@@ -307,10 +307,11 @@ bool ReferencesResolver::visit(Return const& _return)
 
 void ReferencesResolver::endVisit(VariableDeclaration const& _variable)
 {
+	bool isStateVariable = dynamic_cast<VariableDeclaration const*>(&_variable);
 	if (_variable.annotation().type)
 		return;
 
-	if (_variable.isConstant() && !_variable.isStateVariable())
+	if (_variable.isConstant() && !isStateVariable)
 		m_errorReporter.declarationError(_variable.location(), "The \"constant\" keyword can only be used for state variables.");
 
 	if (!_variable.typeName())
@@ -375,7 +376,7 @@ void ReferencesResolver::endVisit(VariableDeclaration const& _variable)
 		solAssert(varLoc == Location::Unspecified, "");
 		typeLoc = DataLocation::Memory;
 	}
-	else if (_variable.isStateVariable())
+	else if (isStateVariable)
 	{
 		solAssert(varLoc == Location::Unspecified, "");
 		typeLoc = _variable.isConstant() ? DataLocation::Memory : DataLocation::Storage;
@@ -405,7 +406,7 @@ void ReferencesResolver::endVisit(VariableDeclaration const& _variable)
 	TypePointer type = _variable.typeName()->annotation().type;
 	if (auto ref = dynamic_cast<ReferenceType const*>(type))
 	{
-		bool isPointer = !_variable.isStateVariable();
+		bool isPointer = !isStateVariable;
 		type = TypeProvider::withLocation(ref, typeLoc, isPointer);
 	}
 

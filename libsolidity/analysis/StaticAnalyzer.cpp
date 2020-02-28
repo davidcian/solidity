@@ -154,7 +154,7 @@ bool StaticAnalyzer::visit(VariableDeclaration const& _variable)
 			// This is not a no-op, the entry might pre-exist.
 			m_localVarUseCount[make_pair(_variable.id(), &_variable)] += 0;
 	}
-	else if (_variable.isStateVariable())
+	else if (dynamic_cast<StateVariableDeclaration const*>(&_variable))
 	{
 		set<StructDefinition const*> structsSeen;
 		if (structureSizeEstimate(*_variable.type(), structsSeen) >= bigint(1) << 64)

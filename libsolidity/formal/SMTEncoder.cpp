@@ -941,15 +941,17 @@ void SMTEncoder::arrayIndexAssignment(Expression const& _expr, smt::Expression c
 		if (auto const& id = dynamic_cast<Identifier const*>(&indexAccess->baseExpression()))
 		{
 			auto varDecl = identifierToVariable(*id);
+			bool isStateVariableDecl = dynamic_cast<StateVariableDeclaration const *>(varDecl);
 			solAssert(varDecl, "");
 
 			if (varDecl->hasReferenceOrMappingType())
 				m_context.resetVariables([&](VariableDeclaration const& _var) {
+					bool isStateVariable = dynamic_cast<StateVariableDeclaration const *>(&_var);
 					if (_var == *varDecl)
 						return false;
 
 					// If both are state variables no need to clear knowledge.
-					if (_var.isStateVariable() && varDecl->isStateVariable())
+					if (isStateVariable && isStateVariableDecl)
 						return false;
 
 					TypePointer prefix = _var.type();
@@ -1398,7 +1400,7 @@ void SMTEncoder::initializeLocalVariables(FunctionDefinition const& _function)
 
 void SMTEncoder::resetStateVariables()
 {
-	m_context.resetVariables([&](VariableDeclaration const& _variable) { return _variable.isStateVariable(); });
+	m_context.resetVariables([&](VariableDeclaration const& _variable) { return dynamic_cast<StateVariableDeclaration const*>(&_variable); });
 }
 
 TypePointer SMTEncoder::typeWithoutPointer(TypePointer const& _type)

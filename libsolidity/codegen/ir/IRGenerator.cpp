@@ -153,11 +153,12 @@ string IRGenerator::generateFunction(FunctionDefinition const& _function)
 string IRGenerator::generateGetter(VariableDeclaration const& _varDecl)
 {
 	string functionName = m_context.functionName(_varDecl);
+	bool isStateVariable = dynamic_cast<StateVariableDeclaration const*>(&_varDecl);
 
 	Type const* type = _varDecl.annotation().type;
 
 	solAssert(!_varDecl.isConstant(), "");
-	solAssert(_varDecl.isStateVariable(), "");
+	solAssert(isStateVariable, "");
 
 	if (auto const* mappingType = dynamic_cast<MappingType const*>(type))
 		return m_context.functionCollector()->createFunction(functionName, [&]() {

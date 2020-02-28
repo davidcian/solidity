@@ -35,7 +35,7 @@ IRVariable::IRVariable(VariableDeclaration const& _declaration):
 		*_declaration.annotation().type
 	)
 {
-	solAssert(!_declaration.isStateVariable(), "");
+	solAssert(!dynamic_cast<StateVariableDeclaration const*>(&_declaration), "");
 }
 
 IRVariable::IRVariable(Expression const& _expression):

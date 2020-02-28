@@ -354,7 +354,7 @@ void NameAndTypeResolver::importInheritedScope(ContractDefinition const& _base)
 					if (auto varDecl = dynamic_cast<VariableDeclaration const*>(conflictingDeclaration))
 						if (
 							dynamic_cast<FunctionDefinition const*>(declaration) &&
-							varDecl->isStateVariable() &&
+							dynamic_cast<StateVariableDeclaration const*>(varDecl) &&
 							varDecl->isPublic()
 						)
 							continue;

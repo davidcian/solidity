@@ -199,7 +199,7 @@ void ViewPureChecker::endVisit(Identifier const& _identifier)
 	bool writes = _identifier.annotation().lValueRequested;
 	if (VariableDeclaration const* varDecl = dynamic_cast<VariableDeclaration const*>(declaration))
 	{
-		if (varDecl->isStateVariable() && !varDecl->isConstant())
+		if (dynamic_cast<StateVariableDeclaration const*>(varDecl) && !varDecl->isConstant())
 			mutability = writes ? StateMutability::NonPayable : StateMutability::View;
 	}
 	else if (MagicVariableDeclaration const* magicVar = dynamic_cast<MagicVariableDeclaration const*>(declaration))
@@ -387,7 +387,7 @@ void ViewPureChecker::endVisit(MemberAccess const& _memberAccess)
 		if (VariableDeclaration const* varDecl = dynamic_cast<VariableDeclaration const*>(
 			_memberAccess.annotation().referencedDeclaration
 		))
-			if (varDecl->isStateVariable() && !varDecl->isConstant())
+			if (dynamic_cast<StateVariableDeclaration const*>(varDecl) && !varDecl->isConstant())
 				mutability = writes ? StateMutability::NonPayable : StateMutability::View;
 		break;
 	}

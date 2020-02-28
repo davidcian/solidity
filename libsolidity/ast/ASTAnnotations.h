@@ -142,6 +142,10 @@ struct VariableDeclarationAnnotation: DeclarationAnnotation
 	std::set<CallableDeclaration const*> baseFunctions;
 };
 
+struct StateVariableDeclarationAnnotation: VariableDeclarationAnnotation, StructurallyDocumentedAnnotation
+{
+};
+
 struct StatementAnnotation: ASTAnnotation
 {
 };
