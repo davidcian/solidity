@@ -982,7 +982,7 @@ bool CommandLineInterface::processInput()
 		else
 			input = readFileAsString(jsonFile);
 		StandardCompiler compiler(fileReader);
-		sout() << compiler.compile(std::move(input)) << endl;
+		sout() << compiler.compile(std::move(input), false) << endl;
 		return true;
 	}
 
