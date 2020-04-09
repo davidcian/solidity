@@ -1487,9 +1487,17 @@ TypeResult ReferenceType::unaryOperatorResult(Token _operator) const
 	case DataLocation::Memory:
 		return TypeProvider::emptyTuple();
 	case DataLocation::Storage:
-		return m_isPointer ? nullptr : TypeProvider::emptyTuple();
+		return isPointer() ? nullptr : TypeProvider::emptyTuple();
 	}
 	return nullptr;
+}
+
+bool ReferenceType::isPointer() const
+{
+	if (m_location == DataLocation::Storage)
+		return m_isPointer;
+	else
+		return true;
 }
 
 TypePointer ReferenceType::copyForLocationIfReference(Type const* _type) const
@@ -1502,7 +1510,7 @@ string ReferenceType::stringForReferencePart() const
 	switch (m_location)
 	{
 	case DataLocation::Storage:
-		return string("storage ") + (m_isPointer ? "pointer" : "ref");
+		return string("storage ") + (isPointer() ? "pointer" : "ref");
 	case DataLocation::CallData:
 		return "calldata";
 	case DataLocation::Memory:
@@ -1868,7 +1876,8 @@ u256 ArrayType::memoryDataSize() const
 std::unique_ptr<ReferenceType> ArrayType::copyForLocation(DataLocation _location, bool _isPointer) const
 {
 	auto copy = make_unique<ArrayType>(_location);
-	copy->m_isPointer = _isPointer;
+	if (_location == DataLocation::Storage)
+		copy->m_isPointer = _isPointer;
 	copy->m_arrayKind = m_arrayKind;
 	copy->m_baseType = copy->copyForLocationIfReference(m_baseType);
 	copy->m_hasDynamicLength = m_hasDynamicLength;
@@ -2001,6 +2010,16 @@ vector<tuple<VariableDeclaration const*, u256, unsigned>> ContractType::stateVar
 		if (auto const* offset = offsets.offset(index))
 			variablesAndOffsets.emplace_back(variables[index], offset->first, offset->second);
 	return variablesAndOffsets;
+}
+
+vector<VariableDeclaration const*> ContractType::immutableVariables() const
+{
+	vector<VariableDeclaration const*> variables;
+	for (ContractDefinition const* contract: boost::adaptors::reverse(m_contract.annotation().linearizedBaseContracts))
+		for (VariableDeclaration const* variable: contract->stateVariables())
+			if (variable->immutable())
+				variables.push_back(variable);
+	return variables;
 }
 
 vector<tuple<string, TypePointer>> ContractType::makeStackItems() const
@@ -2247,7 +2266,8 @@ TypeResult StructType::interfaceType(bool _inLibrary) const
 std::unique_ptr<ReferenceType> StructType::copyForLocation(DataLocation _location, bool _isPointer) const
 {
 	auto copy = make_unique<StructType>(m_struct, _location);
-	copy->m_isPointer = _isPointer;
+	if (_location == DataLocation::Storage)
+		copy->m_isPointer = _isPointer;
 	return copy;
 }
 
@@ -2318,7 +2338,7 @@ TypePointers StructType::memoryMemberTypes() const
 	TypePointers types;
 	for (ASTPointer<VariableDeclaration> const& variable: m_struct.members())
 		if (variable->annotation().type->canLiveOutsideStorage())
-			types.push_back(variable->annotation().type);
+			types.push_back(TypeProvider::withLocationIfReference(DataLocation::Memory, variable->annotation().type));
 	return types;
 }
 
@@ -3092,6 +3112,8 @@ MemberList::MemberMap FunctionType::nativeMembers(ContractDefinition const* _sco
 
 TypePointer FunctionType::encodingType() const
 {
+	if (m_gasSet || m_valueSet)
+		return nullptr;
 	// Only external functions can be encoded, internal functions cannot leave code boundaries.
 	if (m_kind == Kind::External)
 		return this;

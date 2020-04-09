@@ -111,6 +111,7 @@
     },
     "0.1.6": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
             "ZeroFunctionSelector",
@@ -131,6 +132,7 @@
     },
     "0.1.7": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
             "ZeroFunctionSelector",
@@ -151,6 +153,8 @@
     },
     "0.2.0": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
             "ZeroFunctionSelector",
@@ -171,6 +175,8 @@
     },
     "0.2.1": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
             "ZeroFunctionSelector",
@@ -191,6 +197,8 @@
     },
     "0.2.2": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
             "ZeroFunctionSelector",
@@ -211,6 +219,9 @@
     },
     "0.3.0": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
@@ -232,6 +243,9 @@
     },
     "0.3.1": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
@@ -252,6 +266,9 @@
     },
     "0.3.2": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
@@ -272,6 +289,9 @@
     },
     "0.3.3": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
@@ -291,6 +311,9 @@
     },
     "0.3.4": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
@@ -310,6 +333,9 @@
     },
     "0.3.5": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
@@ -329,6 +355,9 @@
     },
     "0.3.6": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
@@ -346,6 +375,9 @@
     },
     "0.4.0": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
@@ -363,6 +395,9 @@
     },
     "0.4.1": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
@@ -380,6 +415,9 @@
     },
     "0.4.10": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "UninitializedFunctionPointerInConstructor_0.4.x",
             "IncorrectEventSignatureInLibraries_0.4.x",
@@ -395,6 +433,9 @@
     },
     "0.4.11": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "UninitializedFunctionPointerInConstructor_0.4.x",
             "IncorrectEventSignatureInLibraries_0.4.x",
@@ -409,6 +450,9 @@
     },
     "0.4.12": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "UninitializedFunctionPointerInConstructor_0.4.x",
             "IncorrectEventSignatureInLibraries_0.4.x",
@@ -422,6 +466,9 @@
     },
     "0.4.13": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "UninitializedFunctionPointerInConstructor_0.4.x",
             "IncorrectEventSignatureInLibraries_0.4.x",
@@ -435,6 +482,9 @@
     },
     "0.4.14": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "UninitializedFunctionPointerInConstructor_0.4.x",
             "IncorrectEventSignatureInLibraries_0.4.x",
@@ -447,6 +497,9 @@
     },
     "0.4.15": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "UninitializedFunctionPointerInConstructor_0.4.x",
             "IncorrectEventSignatureInLibraries_0.4.x",
@@ -458,6 +511,9 @@
     },
     "0.4.16": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -471,6 +527,9 @@
     },
     "0.4.17": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -485,6 +544,9 @@
     },
     "0.4.18": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -498,6 +560,9 @@
     },
     "0.4.19": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -512,6 +577,9 @@
     },
     "0.4.2": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
@@ -528,6 +596,9 @@
     },
     "0.4.20": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -542,6 +613,9 @@
     },
     "0.4.21": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -556,6 +630,9 @@
     },
     "0.4.22": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -570,6 +647,9 @@
     },
     "0.4.23": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -583,6 +663,9 @@
     },
     "0.4.24": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -596,6 +679,9 @@
     },
     "0.4.25": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -607,6 +693,9 @@
     },
     "0.4.26": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2"
@@ -615,6 +704,9 @@
     },
     "0.4.3": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
@@ -630,6 +722,9 @@
     },
     "0.4.4": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
             "NestedArrayFunctionCallDecoder",
@@ -644,6 +739,9 @@
     },
     "0.4.5": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "UninitializedFunctionPointerInConstructor_0.4.x",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
@@ -660,6 +758,9 @@
     },
     "0.4.6": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "UninitializedFunctionPointerInConstructor_0.4.x",
             "IncorrectEventSignatureInLibraries_0.4.x",
             "ExpExponentCleanup",
@@ -675,6 +776,9 @@
     },
     "0.4.7": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "UninitializedFunctionPointerInConstructor_0.4.x",
             "IncorrectEventSignatureInLibraries_0.4.x",
@@ -690,6 +794,9 @@
     },
     "0.4.8": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "UninitializedFunctionPointerInConstructor_0.4.x",
             "IncorrectEventSignatureInLibraries_0.4.x",
@@ -705,6 +812,9 @@
     },
     "0.4.9": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "UninitializedFunctionPointerInConstructor_0.4.x",
             "IncorrectEventSignatureInLibraries_0.4.x",
@@ -720,6 +830,9 @@
     },
     "0.5.0": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -731,6 +844,9 @@
     },
     "0.5.1": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -742,6 +858,9 @@
     },
     "0.5.10": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "YulOptimizerRedundantAssignmentBreakContinue0.5",
             "ABIEncoderV2CalldataStructsWithStaticallySizedAndDynamicallyEncodedMembers"
         ],
@@ -749,24 +868,36 @@
     },
     "0.5.11": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "YulOptimizerRedundantAssignmentBreakContinue0.5"
         ],
         "released": "2019-08-12"
     },
     "0.5.12": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "YulOptimizerRedundantAssignmentBreakContinue0.5"
         ],
         "released": "2019-10-01"
     },
     "0.5.13": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "YulOptimizerRedundantAssignmentBreakContinue0.5"
         ],
         "released": "2019-11-14"
     },
     "0.5.14": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "YulOptimizerRedundantAssignmentBreakContinue0.5",
             "ABIEncoderV2LoopYulOptimizer"
         ],
@@ -774,16 +905,33 @@
     },
     "0.5.15": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "YulOptimizerRedundantAssignmentBreakContinue0.5"
         ],
         "released": "2019-12-17"
     },
     "0.5.16": {
-        "bugs": [],
+        "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden"
+        ],
         "released": "2020-01-02"
+    },
+    "0.5.17": {
+        "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow"
+        ],
+        "released": "2020-03-17"
     },
     "0.5.2": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -795,6 +943,9 @@
     },
     "0.5.3": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -806,6 +957,9 @@
     },
     "0.5.4": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -817,6 +971,9 @@
     },
     "0.5.5": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
             "DynamicConstructorArgumentsClippedABIV2",
@@ -830,6 +987,9 @@
     },
     "0.5.6": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "ABIEncoderV2CalldataStructsWithStaticallySizedAndDynamicallyEncodedMembers",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
@@ -843,6 +1003,9 @@
     },
     "0.5.7": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "ABIEncoderV2CalldataStructsWithStaticallySizedAndDynamicallyEncodedMembers",
             "SignedArrayStorageCopy",
             "ABIEncoderV2StorageArrayWithMultiSlotElement",
@@ -854,6 +1017,9 @@
     },
     "0.5.8": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "YulOptimizerRedundantAssignmentBreakContinue0.5",
             "ABIEncoderV2CalldataStructsWithStaticallySizedAndDynamicallyEncodedMembers",
             "SignedArrayStorageCopy",
@@ -864,6 +1030,9 @@
     },
     "0.5.9": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
+            "privateCanBeOverridden",
             "YulOptimizerRedundantAssignmentBreakContinue0.5",
             "ABIEncoderV2CalldataStructsWithStaticallySizedAndDynamicallyEncodedMembers",
             "SignedArrayStorageCopy",
@@ -873,24 +1042,48 @@
     },
     "0.6.0": {
         "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow",
             "YulOptimizerRedundantAssignmentBreakContinue"
         ],
         "released": "2019-12-17"
     },
     "0.6.1": {
-        "bugs": [],
+        "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow"
+        ],
         "released": "2020-01-02"
     },
     "0.6.2": {
-        "bugs": [],
+        "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow"
+        ],
         "released": "2020-01-27"
     },
     "0.6.3": {
-        "bugs": [],
+        "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow"
+        ],
         "released": "2020-02-18"
     },
     "0.6.4": {
-        "bugs": [],
+        "bugs": [
+            "TupleAssignmentMultiStackSlotComponents",
+            "MemoryArrayCreationOverflow"
+        ],
         "released": "2020-03-10"
+    },
+    "0.6.5": {
+        "bugs": [
+            "TupleAssignmentMultiStackSlotComponents"
+        ],
+        "released": "2020-04-06"
+    },
+    "0.6.6": {
+        "bugs": [],
+        "released": "2020-04-09"
     }
 }

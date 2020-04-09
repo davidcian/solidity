@@ -45,6 +45,7 @@
                   {
                     "constant": false,
                     "id": 8,
+                    "mutability": "mutable",
                     "name": "rows",
                     "nodeType": "VariableDeclaration",
                     "overrides": null,
@@ -54,7 +55,7 @@
                     "storageLocation": "memory",
                     "typeDescriptions":
                     {
-                      "typeIdentifier": "t_array$_t_array$_t_uint256_$dyn_memory_$dyn_memory_ptr",
+                      "typeIdentifier": "t_array$_t_array$_t_uint256_$dyn_memory_ptr_$dyn_memory_ptr",
                       "typeString": "uint256[][]"
                     },
                     "typeName":

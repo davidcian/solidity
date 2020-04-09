@@ -29,17 +29,6 @@
 namespace solidity::phaser
 {
 
-class Population;
-
-}
-
-// This operator+ must be declared in the global namespace. Otherwise it would shadow global
-// operator+ overloads from CommonData.h (e.g. the one for vector) in the namespace it was declared in.
-solidity::phaser::Population operator+(solidity::phaser::Population _a, solidity::phaser::Population _b);
-
-namespace solidity::phaser
-{
-
 class PairSelection;
 class Selection;
 
@@ -55,7 +44,7 @@ struct Individual
 	Individual(Chromosome _chromosome, size_t _fitness):
 		chromosome(std::move(_chromosome)),
 		fitness(_fitness) {}
-	Individual(Chromosome _chromosome, FitnessMetric const& _fitnessMetric):
+	Individual(Chromosome _chromosome, FitnessMetric& _fitnessMetric):
 		chromosome(std::move(_chromosome)),
 		fitness(_fitnessMetric.evaluate(chromosome)) {}
 
@@ -85,7 +74,7 @@ class Population
 {
 public:
 	explicit Population(
-		std::shared_ptr<FitnessMetric const> _fitnessMetric,
+		std::shared_ptr<FitnessMetric> _fitnessMetric,
 		std::vector<Chromosome> _chromosomes = {}
 	):
 		Population(
@@ -94,12 +83,12 @@ public:
 		) {}
 
 	static Population makeRandom(
-		std::shared_ptr<FitnessMetric const> _fitnessMetric,
+		std::shared_ptr<FitnessMetric> _fitnessMetric,
 		size_t _size,
 		std::function<size_t()> _chromosomeLengthGenerator
 	);
 	static Population makeRandom(
-		std::shared_ptr<FitnessMetric const> _fitnessMetric,
+		std::shared_ptr<FitnessMetric> _fitnessMetric,
 		size_t _size,
 		size_t _minChromosomeLength,
 		size_t _maxChromosomeLength
@@ -108,9 +97,10 @@ public:
 	Population select(Selection const& _selection) const;
 	Population mutate(Selection const& _selection, std::function<Mutation> _mutation) const;
 	Population crossover(PairSelection const& _selection, std::function<Crossover> _crossover) const;
-	friend Population (::operator+)(Population _a, Population _b);
 
-	std::shared_ptr<FitnessMetric const> fitnessMetric() const { return m_fitnessMetric; }
+	friend Population operator+(Population _a, Population _b);
+
+	std::shared_ptr<FitnessMetric> fitnessMetric() { return m_fitnessMetric; }
 	std::vector<Individual> const& individuals() const { return m_individuals; }
 
 	static size_t uniformChromosomeLength(size_t _min, size_t _max) { return SimulationRNG::uniformInt(_min, _max); }
@@ -122,17 +112,17 @@ public:
 	friend std::ostream& operator<<(std::ostream& _stream, Population const& _population);
 
 private:
-	explicit Population(std::shared_ptr<FitnessMetric const> _fitnessMetric, std::vector<Individual> _individuals):
+	explicit Population(std::shared_ptr<FitnessMetric> _fitnessMetric, std::vector<Individual> _individuals):
 		m_fitnessMetric(std::move(_fitnessMetric)),
 		m_individuals{sortedIndividuals(std::move(_individuals))} {}
 
 	static std::vector<Individual> chromosomesToIndividuals(
-		FitnessMetric const& _fitnessMetric,
+		FitnessMetric& _fitnessMetric,
 		std::vector<Chromosome> _chromosomes
 	);
 	static std::vector<Individual> sortedIndividuals(std::vector<Individual> _individuals);
 
-	std::shared_ptr<FitnessMetric const> m_fitnessMetric;
+	std::shared_ptr<FitnessMetric> m_fitnessMetric;
 	std::vector<Individual> m_individuals;
 };
 
